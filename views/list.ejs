@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do list</title>
+    <!-- <link rel="stylesheet" href="../public/styles.css"> -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="box" id="heading">
+
+        <h1>
+            <%= kindofday %>
+        </h1>
+    </div>
+
+    <div class="box">
+
+        <% for( let i=0; i <newListItem.length; i++ ) { %>
+            <form action="/delete" method="post"   >
+                <div class="item round">
+                    <input type="checkbox" value="<%= newListItem[i]._id%>" name="checkbox" onChange="this.form.submit()">
+                    <p>
+                        <%= newListItem[i].name %>
+                            <p>
+
+                </div>
+                <input type="hidden" name="listname" value="<%= kindofday %>">
+            </form>
+            <% } %>
+                <form class="item" action="/" method="post">
+
+                    <input type="text" name="newItem" placeholder="New Item">
+
+                    <button type="submit" name="button" value="<%= kindofday %>" >+</button>
+                </form>
+    </div>
+
+
+</body>
+
+</html>
